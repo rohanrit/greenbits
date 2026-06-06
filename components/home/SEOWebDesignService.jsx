@@ -28,7 +28,7 @@ export default function SEOWebDesignService() {
               partner with us.
             </p>
           </div>
-          <div className="relative w-full max-w-sm" style={{ aspectRatio: '1024/1024' }}>
+          <div className="relative w-full h-full" style={{ aspectRatio: '1024/1024' }}>
             <Image
               src="/assets/images/Intro-preview-7.png"
               alt="Web Design Process"

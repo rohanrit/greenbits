@@ -2,8 +2,7 @@ import Head from "next/head";
 import NoiseOverlay from "@/components/backgrounds/NoiseOverlay";
 import Navbar from "@/components/home/Navbar";
 import HeroSection from "@/components/home/HeroSection";
-import ResponsiveWebDesign from "@/components/home/ResponsiveWebDesign";
-import FeatureImage from "@/components/home/FeatureImage";
+import ResponsiveWebDesignFeature from "@/components/home/ResponsiveWebDesignFeature";
 import UXUI from "@/components/home/UXUI";
 import WebDesignProcess from "@/components/home/WebDesignProcess";
 import SEOWebDesignService from "@/components/home/SEOWebDesignService";
@@ -29,8 +28,7 @@ export default function HomePage() {
       <main className="min-h-screen overflow-x-hidden text-[#333]">
         <Navbar />
         <HeroSection />
-        <ResponsiveWebDesign />
-        <FeatureImage />
+        <ResponsiveWebDesignFeature />
         <UXUI />
         <WebDesignProcess />
         <SEOWebDesignService />

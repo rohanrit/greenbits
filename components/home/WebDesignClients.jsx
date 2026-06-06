@@ -37,13 +37,9 @@ export default function WebDesignClients() {
               In an aggressive marketspace and saturated marketplace it was important to evolve the
               brand visually into something that really stood out.
             </p>
-            <div className="mt-6 flex flex-wrap gap-4">
-              <button className="btn inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-2.5 text-white transition hover:bg-white hover:text-slate-900">
-                VIEW CASE STUDY
-              </button>
-              <button className="btn inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-2.5 text-white/70 transition hover:bg-white hover:text-slate-900">
-                View All Case Studies
-              </button>
+            <div className="hidden">
+              <button>VIEW CASE STUDY</button>
+              <button>View All Case Studies</button>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">

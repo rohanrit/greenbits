@@ -69,20 +69,10 @@ export default function HeroSection() {
           </div>
 
           {/* Action Callouts / CTAs */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-          >
-            <button className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#3ab54b] text-white font-semibold uppercase hover:bg-[#2d8a3b] transition-all duration-200 shadow-lg shadow-[#3ab54b]/20 overflow-hidden">
-              <span>Initiate Project</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-transparent border border-white/20 text-white/80 font-semibold uppercase hover:bg-white/5 hover:text-white hover:border-white/40 transition-all duration-200">
-              Explore Our Stack
-            </button>
-          </motion.div>
+          <div className="hidden">
+            <button>Initiate Project</button>
+            <button>Explore Our Stack</button>
+          </div>
 
           {/* Dynamic Service Feature Tabs */}
           <motion.div 

@@ -34,7 +34,7 @@ export default function Portfolio() {
             <div
               key={i}
               className={`group relative overflow-hidden rounded-2xl shadow-sm transition hover:shadow-lg ${
-                i === 0 ? "col-span-2 row-span-2" : ""
+                i === 0 ? "col-span-2 row-span-2 min-h-[400px]" : "min-h-[200px]"
               }`}
             >
               <div className="relative h-full w-full">
@@ -42,6 +42,7 @@ export default function Portfolio() {
                   src={src}
                   alt={`Portfolio item ${i + 1}`}
                   fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
