@@ -17,9 +17,9 @@ export default function WhatWeCouldDo() {
             If you&apos;d like help with your digital marketing and our work on this project has inspired
             you, why not get in touch with us to discuss your plans:
           </p>
-          <button className="btn mt-6 inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-2.5 text-white transition hover:bg-white hover:text-slate-900">
+          <a href="#contact" className="btn mt-6 inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-2.5 text-white transition hover:bg-white hover:text-slate-900">
             Get in touch
-          </button>
+          </a>
         </div>
 
         <div>

@@ -19,7 +19,7 @@ export default function ResponsiveWebDesignFeature() {
             </div>
             <div className="mt-8 md:mt-12">
               <a
-                href="#"
+                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-emerald-900 shadow-md transition-colors hover:bg-emerald-50 group"
               >
                 Contact Us

@@ -29,10 +29,10 @@ export default function WebsiteAudit() {
           Request your website audit here and we will be in touch with you shortly to discuss your requirements.
         </p>
         <div className="mt-8">
-          <button className="btn inline-flex items-center gap-2 rounded-xl bg-[#3ab54b] px-7 py-3.5 text-white shadow-md transition hover:bg-[#2d8a3b] hover:shadow-lg">
+          <a href="#contact" className="btn inline-flex items-center gap-2 rounded-xl bg-[#3ab54b] px-7 py-3.5 text-white shadow-md transition hover:bg-[#2d8a3b] hover:shadow-lg">
             Get in touch
             <span aria-hidden="true" className="text-lg">&rarr;</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -11,12 +11,12 @@ import {
 
 // Configuration for Tech Stack Floating Elements (3D-like Orbit)
 const techStack = [
-  { name: 'Next.js', color: 'bg-black text-white border-neutral-800', x: '-40%', y: '-50%', delay: 0 },
-  { name: 'React', color: 'bg-sky-950 text-sky-400 border-sky-800', x: '50%', y: '-55%', delay: 0.2 },
+  { name: 'Next.js', color: 'bg-black text-white border-neutral-800', x: '-10%', y: '-50%', delay: 0 },
+  { name: 'React', color: 'bg-sky-950 text-sky-400 border-sky-800', x: '50%', y: '-85%', delay: 0.2 },
   { name: 'Node.js', color: 'bg-[#1a3a1a] text-[#3ab54b] border-[#2d5a2d]', x: '-55%', y: '20%', delay: 0.4 },
-  { name: 'JavaScript', color: 'bg-yellow-950 text-yellow-400 border-yellow-800', x: '60%', y: '30%', delay: 0.1 },
-  { name: 'Python', color: 'bg-blue-950 text-blue-400 border-blue-800', x: '-30%', y: '55%', delay: 0.5 },
-  { name: 'PHP', color: 'bg-indigo-950 text-indigo-400 border-indigo-800', x: '35%', y: '-25%', delay: 0.3 },
+  { name: 'JavaScript', color: 'bg-yellow-950 text-yellow-400 border-yellow-800', x: '20%', y: '30%', delay: 0.1 },
+  { name: 'Python', color: 'bg-blue-950 text-blue-400 border-blue-800', x: '-30%', y: '75%', delay: 0.5 },
+  { name: 'PHP', color: 'bg-indigo-950 text-indigo-400 border-indigo-800', x: '65%', y: '-25%', delay: 0.3 },
 ];
 
 // Configuration for core agency services
@@ -136,7 +136,7 @@ export default function HeroSection() {
           
           {/* Inner Decorative Concentric Rings */}
           <div className="absolute w-72 h-72 rounded-full border border-neutral-900/60 flex items-center justify-center animate-[spin_60s_linear_infinite]" />
-          <div className="absolute w-[420px] h-[420px] rounded-full border border-neutral-900/40 border-dashed flex items-center justify-center animate-[spin_120s_linear_infinite]" />
+          <div className="absolute w-[420px] h-[420px] rounded-full border border-white border-dashed flex items-center justify-center animate-[spin_120s_linear_infinite]" />
           
           {/* Central Interactive Monolith Block */}
           <motion.div 
@@ -160,7 +160,11 @@ export default function HeroSection() {
             {/* Embedded Mini-Matrix Dots inside the Monolith */}
             <div className="absolute bottom-6 grid grid-cols-6 gap-2 opacity-40">
               {[...Array(18)].map((_, i) => (
-                <div key={i} className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-[#3ab54b]' : 'bg-neutral-700'}`} />
+                <div
+                  key={i}
+                  className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-[#3ab54b]' : 'bg-neutral-700'}`}
+                  style={{ margin: '2px' }}
+                />
               ))}
             </div>
           </motion.div>
