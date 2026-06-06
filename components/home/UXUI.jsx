@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
 
@@ -18,7 +19,20 @@ export default function UXUI() {
               <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
             </svg>
           </div>
-          <p className="mt-6 leading-relaxed text-[#5a6564]">
+          <div className="relative mt-8 w-full" style={{ aspectRatio: '901/383' }}>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-[length:200%_200%] p-[5px]" style={{ animation: 'spinGradient 4s linear infinite' }}>
+              <div className="relative h-full w-full overflow-hidden rounded-xl bg-white">
+                <Image
+                  src="/assets/images/hero-banner-02.png"
+                  alt="UX & UI Design"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-8 leading-relaxed text-[#5a6564]">
             UX and UI often get lumped together within the context of web design, but are actually
             very different. UI (user interface) covers visual and interactive website elements that
             allow users to navigate, engage with content, and accomplish tasks. Everything from
