@@ -11,11 +11,11 @@ import {
 
 // Configuration for Tech Stack Floating Elements (3D-like Orbit)
 const techStack = [
-  { name: 'Next.js', color: 'bg-black text-white border-neutral-800', x: '-10%', y: '-50%', delay: 0 },
-  { name: 'React', color: 'bg-sky-950 text-sky-400 border-sky-800', x: '50%', y: '-85%', delay: 0.2 },
-  { name: 'Node.js', color: 'bg-[#1a3a1a] text-[#3ab54b] border-[#2d5a2d]', x: '-55%', y: '20%', delay: 0.4 },
-  { name: 'JavaScript', color: 'bg-yellow-950 text-yellow-400 border-yellow-800', x: '20%', y: '30%', delay: 0.1 },
-  { name: 'Python', color: 'bg-blue-950 text-blue-400 border-blue-800', x: '-30%', y: '75%', delay: 0.5 },
+  { name: 'Next.js', color: 'bg-black text-white border-neutral-800', x: '100%', y: '100%', delay: 0 },
+  { name: 'React', color: 'bg-sky-950 text-sky-400 border-sky-800', x: '-100%', y: '-100%', delay: 0.2 },
+  { name: 'Node.js', color: 'bg-[#1a3a1a] text-[#3ab54b] border-[#2d5a2d]', x: '-100%', y: '100%', delay: 0.4 },
+  { name: 'JavaScript', color: 'bg-yellow-950 text-yellow-400 border-yellow-800', x: '100%', y: '-100%', delay: 0.1 },
+  { name: 'Python', color: 'bg-blue-950 text-blue-400 border-blue-800', x: '0', y: '65%', delay: 0.5 },
   { name: 'PHP', color: 'bg-indigo-950 text-indigo-400 border-indigo-800', x: '65%', y: '-25%', delay: 0.3 },
 ];
 
@@ -150,11 +150,12 @@ export default function HeroSection() {
             {/* Glowing Focal Core */}
             <div className="absolute inset-0 bg-[#3ab54b]/10 opacity-0 group-hover:opacity-100 rounded-2xl blur-xl transition-opacity duration-500 pointer-events-none" />
             
+            
+            
+            <p className="text-2xl font-bold tracking-wider uppercase text-neutral-300">Modern Web Development</p>
             <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-inner mb-6 transition-transform duration-300 group-hover:translate-z-10">
               <Code2 className="w-16 h-16 text-[#3ab54b]" />
             </div>
-            
-            <p className="text-2xl font-bold tracking-wider uppercase text-neutral-300">PRODUCTION</p>
             <p className="text-lg text-neutral-500 mt-3 font-mono">READY DEPLOYMENT</p>
             
             {/* Embedded Mini-Matrix Dots inside the Monolith */}
