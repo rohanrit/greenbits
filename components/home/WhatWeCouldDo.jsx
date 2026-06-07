@@ -31,16 +31,16 @@ export default function WhatWeCouldDo() {
               { category: "Web Development, AI, Industry News", title: "Google WebMCP Origin Trial Goes Live in Chrome 149 — Paving the Way for the Agentic Web", img: "/assets/news-google-01.png" },
               { category: "AI, Web Development, Microsoft", title: "Microsoft Launches MAI-Code-1-Flash: New AI Coding Model Outperforms Claude Haiku 4.5 in GitHub Copilot", img: "/assets/news-microsoft-01.png" },
             ].map((post, i) => (
-              <a key={i} href="#" className="group flex gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+              <button key={i} className="group flex gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md text-left">
                 <Image src={post.img} alt={post.title} width={96} height={96} className="h-20 w-20 flex-shrink-0 rounded-xl object-cover sm:h-24 sm:w-24" />
                 <div>
                   <p className="text-xs font-medium text-[#3ab54b]">{post.category}</p>
-                  <h5 className="text-[18px] mt-1 font-semibold text-[#010914] transition group-hover:text-[#3ab54b]">
+                  <h5 className="text-[18px] mt-0 font-semibold text-[#010914] transition group-hover:text-[#3ab54b]">
                     {post.title}
                   </h5>
-                  <p className="mt-1 text-xs font-medium text-[#3ab54b]">Read more &rarr;</p>
+                  {/* <p className="mt-1 text-xs font-medium text-[#3ab54b]">Read more &rarr;</p> */}
                 </div>
-              </a>
+              </button>
             ))}
           </div>
         </div>
