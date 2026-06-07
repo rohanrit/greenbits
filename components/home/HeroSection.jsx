@@ -46,17 +46,34 @@ export default function HeroSection() {
           
           {/* Main Heading with Highlight */}
           <div className="space-y-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]"
-            >
-              Transforming Complex Visions Into{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#3ab54b] via-[#45c65a] to-[#2d8a3b]">
-                High-Performance Digital Reality
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              <span className="inline-flex flex-wrap">
+                {"Transforming Complex Visions Into ".split('').map((char, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 + i * 0.025, ease: [0.25, 0.1, 0.25, 1] }}
+                    style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
               </span>
-            </motion.h1>
+              <span className="inline-flex flex-wrap bg-clip-text text-transparent bg-gradient-to-r from-[#3ab54b] via-[#45c65a] to-[#2d8a3b]">
+                {"High-Performance Digital Reality".split('').map((char, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.6 + i * 0.025, ease: [0.25, 0.1, 0.25, 1] }}
+                    style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
+              </span>
+            </h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -138,33 +155,94 @@ export default function HeroSection() {
           <div className="absolute w-72 h-72 rounded-full border border-neutral-900/60 flex items-center justify-center animate-[spin_60s_linear_infinite]" />
           <div className="absolute w-[420px] h-[420px] rounded-full border border-white border-dashed flex items-center justify-center animate-[spin_120s_linear_infinite]" />
           
-          {/* Central Interactive Monolith Block */}
-          <motion.div 
+          {/* Central Blob Shape with Gradient */}
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            whileHover={{ rotateY: 15, rotateX: -15 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              borderRadius: [
+                '50% 50% 40% 60% / 60% 40% 50% 50%',
+                '60% 40% 50% 50% / 50% 60% 40% 60%',
+                '40% 60% 60% 40% / 40% 50% 60% 50%',
+                '45% 55% 50% 50% / 55% 45% 55% 45%',
+                '55% 45% 45% 55% / 50% 55% 45% 55%',
+                '50% 50% 40% 60% / 60% 40% 50% 50%',
+              ],
+              rotate: ['0deg', '5deg', '-3deg', '4deg', '-2deg', '0deg'],
+            }}
+            transition={{
+              duration: 1,
+              ease: 'easeOut',
+              borderRadius: {
+                duration: 12,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+              rotate: {
+                duration: 20,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+            }}
+            whileHover={{ scale: 1.05 }}
             style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
-            className="min-w-[550px] h-[550px] rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 shadow-2xl flex flex-col items-center justify-center p-10 relative group cursor-grab active:cursor-grabbing select-none"
+            className="min-w-[400px] sm:min-w-[500px] w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-white/5 backdrop-blur-2xl border-[6px] border-white/30 shadow-2xl shadow-emerald-500/30 flex flex-col items-center justify-center p-10 relative group cursor-grab active:cursor-grabbing select-none"
           >
-            {/* Glowing Focal Core */}
-            <div className="absolute inset-0 bg-[#3ab54b]/10 opacity-0 group-hover:opacity-100 rounded-2xl blur-xl transition-opacity duration-500 pointer-events-none" />
+            {/* Glow aura behind glass */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-emerald-400/40 via-[#3ab54b]/30 to-teal-600/40 blur-3xl -z-10"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.6, 1, 0.6],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
             
-            
-            
-            <p className="text-2xl font-bold tracking-wider uppercase text-neutral-300">Modern Web Development</p>
-            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-inner mb-6 transition-transform duration-300 group-hover:translate-z-10">
-              <Code2 className="w-16 h-16 text-[#3ab54b]" />
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center">
+              <p className="text-xl font-bold tracking-wider uppercase text-white text-center">Modern <br /> Web Development</p>
+              <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg mb-5 transition-transform duration-300 group-hover:scale-110">
+                <Code2 className="w-14 h-14 text-white" />
+              </div>
+              <div className="mt-3 h-1 w-16 rounded-full bg-white/30" />
+              <p className="text-sm text-white/70 mt-4 font-mono tracking-widest">READY DEPLOYMENT</p>
             </div>
-            <p className="text-lg text-neutral-500 mt-3 font-mono">READY DEPLOYMENT</p>
-            
-            {/* Embedded Mini-Matrix Dots inside the Monolith */}
-            <div className="absolute bottom-6 grid grid-cols-6 gap-2 opacity-40">
-              {[...Array(18)].map((_, i) => (
-                <div
+
+            {/* Orbiting dots */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {[...Array(8)].map((_, i) => (
+                <motion.div
                   key={i}
-                  className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-[#3ab54b]' : 'bg-neutral-700'}`}
-                  style={{ margin: '2px' }}
+                  className="absolute w-2 h-2 rounded-full bg-white/40"
+                  animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.5, 1],
+                  }}
+                  transition={{
+                    rotate: {
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: 'linear',
+                      delay: i * 1.25,
+                    },
+                    scale: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: i * 0.25,
+                    },
+                  }}
+                  style={{
+                    width: 8 + (i % 3) * 4,
+                    height: 8 + (i % 3) * 4,
+                    transformOrigin: 'center',
+                    transform: `rotate(${i * 45}deg) translateY(-${160 + (i % 2) * 40}px)`,
+                  }}
                 />
               ))}
             </div>

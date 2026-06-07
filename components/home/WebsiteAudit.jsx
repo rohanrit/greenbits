@@ -2,17 +2,18 @@
 
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 export default function WebsiteAudit() {
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
       <Blob className="-left-20 top-10 h-80 w-80" />
       <MorphBlob gradientFrom="#56ab91" gradientTo="#8fd3a8" className="-right-32 -bottom-32 h-[50vh] w-[50vw] max-h-[400px] max-w-[400px]" duration="19s" delay="-8s" />
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
 
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="font-bold text-[#010914]">
-          Website Audit
-        </h2>
+      <AnimatedSection className="mx-auto max-w-3xl text-center">
+        <CharReveal text="Website Audit" className="font-bold text-[#010914]" />
         <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-[#3ab54b] sm:text-sm">
           Want to Increase Your Conversions?
         </p>
@@ -29,12 +30,12 @@ export default function WebsiteAudit() {
           Request your website audit here and we will be in touch with you shortly to discuss your requirements.
         </p>
         <div className="mt-8">
-          <a href="#contact" className="btn inline-flex items-center gap-2 rounded-xl bg-[#3ab54b] px-7 py-3.5 text-white shadow-md transition hover:bg-[#2d8a3b] hover:shadow-lg">
+          <a href="#contact" className="btn inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#3ab54b] to-emerald-500 px-7 py-3.5 text-white shadow-lg shadow-emerald-200/50 transition-all duration-300 hover:from-[#2d8a3b] hover:to-emerald-600 hover:shadow-xl hover:shadow-emerald-300/50">
             Get in touch
             <span aria-hidden="true" className="text-lg">&rarr;</span>
           </a>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

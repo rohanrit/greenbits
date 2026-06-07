@@ -2,6 +2,8 @@
 
 import useCarousel from './useCarousel';
 import MorphBlob from './MorphBlob';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 const reviews = [
   {
@@ -37,17 +39,15 @@ export default function ReviewCarousel() {
     <section className="relative overflow-hidden bg-gradient-to-br from-[#3ab54b] via-[#45c65a] to-[#2d8a3b] py-16 md:py-24">
       <MorphBlob gradientFrom="#a8e6cf" gradientTo="#dcedc1" className="-right-32 -top-32 h-[55vh] w-[55vw] max-h-[450px] max-w-[450px]" duration="20s" delay="-2s" opacity={0.15} />
       <MorphBlob gradientFrom="#a8e6cf" gradientTo="#88d8b0" className="-left-32 -bottom-32 h-[45vh] w-[45vw] max-h-[350px] max-w-[350px]" duration="24s" delay="-8s" opacity={0.15} />
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-center text-white sm:text-center">
-          What Our Clients Say
-        </h2>
+      <AnimatedSection className="mx-auto max-w-6xl px-6">
+        <CharReveal text="What Our Clients Say" className="text-center text-white sm:text-center" />
         <div className="mx-auto mt-4 flex justify-center">
           <svg width="87" height="10" viewBox="0 0 87 10" className="fill-none stroke-white/60 stroke-[4]">
             <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
           </svg>
         </div>
-        <div className="relative mx-auto mt-10 max-w-3xl">
-          <div className="overflow-hidden rounded-3xl bg-white/10 p-8 text-center shadow-lg backdrop-blur-sm md:p-12">
+          <div className="relative mx-auto mt-10 max-w-3xl">
+            <div className="overflow-hidden rounded-3xl bg-white/10 p-8 text-center shadow-2xl shadow-emerald-900/20 backdrop-blur-xl md:p-12 ring-1 ring-white/20">
             <div className="flex justify-center gap-1">
               {Array.from({ length: reviews[idx].rating }).map((_, i) => (
                 <svg key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -94,7 +94,7 @@ export default function ReviewCarousel() {
             ))}
           </div>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

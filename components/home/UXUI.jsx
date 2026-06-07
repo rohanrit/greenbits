@@ -3,30 +3,31 @@
 import Image from 'next/image';
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 export default function UXUI() {
   return (
-    <section className="relative bg-slate-50 py-16 md:py-24">
+    <section className="relative bg-gradient-to-b from-slate-50 to-white py-16 md:py-24">
       <Blob className="-right-20 top-10 h-80 w-80" />
       <MorphBlob gradientFrom="#a8e6cf" gradientTo="#88d8b0" className="-left-28 -bottom-28 h-[55vh] w-[55vw] max-h-[450px] max-w-[450px]" duration="25s" delay="-3s" />
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
+      <AnimatedSection className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-bold text-[#010914]">
-            UX &amp; UI in Web Design
-          </h2>
+          <CharReveal text="UX & UI in Web Design" className="font-bold text-[#010914]" />
           <div className="mt-4 flex justify-start">
             <svg width="87" height="10" viewBox="0 0 87 10" className="fill-none stroke-[#3ab54b] stroke-[4]">
               <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
             </svg>
           </div>
-          <div className="relative mt-8 w-full" style={{ aspectRatio: '901/383' }}>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-[length:200%_200%] p-[5px]" style={{ animation: 'spinGradient 4s linear infinite' }}>
+          <div className="group relative mt-8 w-full" style={{ aspectRatio: '901/383' }}>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-[length:200%_200%] p-[5px] shadow-2xl shadow-emerald-200/50 transition-all duration-500 group-hover:shadow-emerald-300/70" style={{ animation: 'spinGradient 4s linear infinite' }}>
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-white">
                 <Image
                   src="/assets/images/hero-banner-02.png"
                   alt="UX & UI Design"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-all duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -52,7 +53,7 @@ export default function UXUI() {
             technology and emotion all play important roles.
           </p>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

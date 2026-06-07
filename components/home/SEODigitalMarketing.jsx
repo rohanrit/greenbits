@@ -3,6 +3,8 @@
 import { RefreshCw, GitCompare, Search, BarChart3, FileText, Megaphone } from 'lucide-react';
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 const cards = [
   { title: "Expert Redesigns", text: "Our SEO, web design and web development teams will work together to ensure that any changes to your site not only preserve existing performance and brand perception, but also boost future potential.", icon: RefreshCw },
@@ -15,15 +17,14 @@ const cards = [
 
 export default function SEODigitalMarketing() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 py-16 md:py-24">
       <Blob className="-left-20 top-10 h-80 w-80" />
       <MorphBlob gradientFrom="#a8e6cf" gradientTo="#56ab91" className="-right-32 -top-32 h-[55vh] w-[55vw] max-h-[450px] max-w-[450px]" duration="21s" delay="-4s" />
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <AnimatedSection className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-bold text-[#010914]">
-            SEO Web Design &amp; Digital Marketing
-          </h2>
+          <CharReveal text="SEO Web Design & Digital Marketing" className="font-bold text-[#010914]" />
           <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-[#3ab54b] sm:text-sm">
             Reach a Wider Audience
           </p>
@@ -37,24 +38,28 @@ export default function SEODigitalMarketing() {
             complement your web design objectives with a solid SEO strategy along with other services like social media ads.
           </p>
         </div>
-      </div>
+      </AnimatedSection>
 
-      <div className="mt-8 overflow-hidden">
+      <AnimatedSection className="mt-8 overflow-hidden" delay={0.15}>
         <div className="flex gap-6" style={{ width: 'max-content', animation: 'scrollLeft 30s linear infinite' }}>
           {[...cards, ...cards].map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={`${item.title}-${i}`} className="group w-72 flex-shrink-0 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md md:w-96">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-[#2d8a3b] transition group-hover:bg-[#3ab54b] group-hover:text-white md:h-[120px] md:w-[120px]">
-                  <Icon className="h-6 w-6 md:h-14 md:w-14" strokeWidth={2} />
+              <div key={`${item.title}-${i}`} className="group w-72 flex-shrink-0 md:w-96">
+                <div className="h-full rounded-2xl bg-gradient-to-br from-emerald-400/80 via-teal-300/80 to-emerald-500/80 p-[1px] shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-200/50">
+                  <div className="flex h-full flex-col rounded-[calc(1rem-1px)] bg-white/95 p-6 backdrop-blur-sm transition group-hover:bg-white md:p-8">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white shadow-md transition group-hover:shadow-lg md:h-[72px] md:w-[72px]">
+                      <Icon className="h-6 w-6 md:h-9 md:w-9" strokeWidth={2} />
+                    </div>
+                    <h3 className="font-semibold text-[#010914]">{item.title}</h3>
+                    <p className="mt-2 leading-relaxed text-[#5a6564]">{item.text}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-[#5a6564]">{item.title}</h3>
-                <p className="mt-2 leading-relaxed text-[#5a6564]">{item.text}</p>
               </div>
             );
           })}
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

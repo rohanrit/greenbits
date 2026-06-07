@@ -1,7 +1,11 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Blob from "./Blob";
 import MorphBlob from "./MorphBlob";
+import AnimatedSection from "./AnimatedSection";
+import CharReveal from "./CharReveal";
 
 const steps = [
   {
@@ -55,9 +59,17 @@ const steps = [
 ];
 
 export default function WebDesignProcess() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
   return (
     <section
       id="about"
+      ref={sectionRef}
       className="relative mx-auto max-w-6xl px-6 py-16 md:py-24"
     >
       <Blob className="-left-20 bottom-0 h-72 w-72" />
@@ -68,90 +80,99 @@ export default function WebDesignProcess() {
         duration="20s"
         delay="-7s"
       />
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
 
-      {/* FIX: Added lg:items-start so the left column doesn't stretch to full height */}
-      <div className="lg:grid lg:grid-cols-5 lg:gap-12 lg:items-start">
-        {/* Left Column (Sticky Container) */}
+      <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-start">
+        {/* Left Column (Sticky Parallax Container) */}
         <div className="lg:sticky lg:top-24 lg:col-span-2">
-          <h2 className="font-bold uppercase text-[#010914]">
-            Our Web Design Process
-          </h2>
+          <motion.div style={{ y: parallaxY }}>
+            <CharReveal text="Our Web Design Process" as="h2" className="font-bold uppercase text-[#010914]" />
 
-          <div className="mt-6 flex items-start gap-4">
-            <svg
-              width="87"
-              height="10"
-              viewBox="0 0 87 10"
-              className="mt-1.5 flex-shrink-0 fill-none stroke-[#3ab54b] stroke-[4]"
-            >
-              <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
-            </svg>
-            <h3 className="font-semibold text-[#010914]">
-              Research &amp; Planning
-            </h3>
-          </div>
+            <div className="mt-6 flex items-start gap-4">
+              <svg
+                width="87"
+                height="10"
+                viewBox="0 0 87 10"
+                className="mt-1.5 flex-shrink-0 fill-none stroke-[#3ab54b] stroke-[4]"
+              >
+                <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
+              </svg>
+              <h3 className="font-semibold text-[#010914]">
+                Research &amp; Planning
+              </h3>
+            </div>
 
-          <div className="mt-4 space-y-4 leading-relaxed text-[#5a6564]">
-            <p>
-              Websites are supposed to encourage a conversation between you and
-              your customers. When it comes to investing in the perfect website
-              design to balance emotion, function and brand values, Greenbits is
-              here to guide you.
-            </p>
-            <p>
-              Providing a responsive web design that not only works but delivers
-              a fully integrated service is a top priority for our team.
-            </p>
-            <p>Understanding your business is at the heart of how we work.</p>
-            <p>
-              As with all our services, we believe a robust and thorough process
-              is the key to success, our design process includes:
-            </p>
-          </div>
+            <div className="mt-4 space-y-4 leading-relaxed text-[#5a6564]">
+              <p>
+                Websites are supposed to encourage a conversation between you and
+                your customers. When it comes to investing in the perfect website
+                design to balance emotion, function and brand values, Greenbits is
+                here to guide you.
+              </p>
+              <p>
+                Providing a responsive web design that not only works but delivers
+                a fully integrated service is a top priority for our team.
+              </p>
+              <p>Understanding your business is at the heart of how we work.</p>
+              <p>
+                As with all our services, we believe a robust and thorough process
+                is the key to success, our design process includes:
+              </p>
+            </div>
 
-          <div className="mt-6">
-            <a href="#contact" className="btn inline-flex items-center gap-2 rounded-xl bg-[#3ab54b] px-6 py-3 text-white shadow-md transition hover:bg-[#2d8a3b] hover:shadow-lg">
-              Speak to Our Experts
-              <span aria-hidden="true" className="text-lg">
-                &rarr;
-              </span>
-            </a>
-          </div>
+            <div className="mt-6">
+              <a href="#contact" className="btn inline-flex items-center gap-2 rounded-xl bg-[#3ab54b] px-6 py-3 text-white shadow-md transition hover:bg-[#2d8a3b] hover:shadow-lg">
+                Speak to Our Experts
+                <span aria-hidden="true" className="text-lg">
+                  &rarr;
+                </span>
+              </a>
+            </div>
 
-          <div className="mt-8 hidden flex-wrap gap-3 lg:flex">
-            {["1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0"].map(
-              (s) => (
-                <a
-                  key={s}
-                  href={`#step-${s}`}
-                  className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-500 transition hover:border-[#3ab54b] hover:text-[#3ab54b]"
-                >
-                  {s}
-                </a>
-              ),
-            )}
-          </div>
+            <div className="mt-8 hidden flex-wrap gap-3 lg:flex">
+              {["1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0"].map(
+                (s) => (
+                  <a
+                    key={s}
+                    href={`#step-${s}`}
+                    className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-500 transition hover:border-[#3ab54b] hover:text-[#3ab54b]"
+                  >
+                    {s}
+                  </a>
+                ),
+              )}
+            </div>
+          </motion.div>
         </div>
 
-        {/* Right Column (Scrolling content) */}
-        <div className="mt-12 space-y-14 lg:col-span-3 lg:mt-0">
-          {steps.map((step) => (
-            <div key={step.num} id={step.id} className="scroll-mt-28">
-              <h6 className="font-bold uppercase tracking-widest text-[#010914]">
-                {step.num}
-              </h6>
-              <div className="mt-2 mb-4">
-                <svg
-                  width="87"
-                  height="10"
-                  viewBox="0 0 87 10"
-                  className="fill-none stroke-teal-400 stroke-[4]"
-                >
-                  <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-[#010914]">{step.title}</h3>
-              <p className="mt-3 leading-relaxed text-[#5a6564]">{step.text}</p>
+        {/* Right Column — Stacking Cards */}
+        <div className="relative mt-12 lg:col-span-3 lg:mt-0">
+          {steps.map((step, i) => (
+            <div
+              key={step.num}
+              id={step.id}
+              className="sticky top-24 scroll-mt-24 mb-3"
+              style={{ zIndex: steps.length - i }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+                className="relative rounded-2xl bg-gradient-to-br from-emerald-400/80 via-teal-300/80 to-emerald-500/80 p-[1px] shadow-lg"
+              >
+                <div className="rounded-[calc(1rem-1px)] bg-white/95 p-6 backdrop-blur-sm md:p-8">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 font-bold text-white shadow-md">
+                      {step.num.replace('.0','')}
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-[#010914]">{step.title}</h3>
+                      <p className="mt-2 leading-relaxed text-[#5a6564]">{step.text}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           ))}
         </div>

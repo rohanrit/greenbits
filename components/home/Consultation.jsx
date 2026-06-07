@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 export default function Consultation() {
   const [firstName, setFirstName] = useState('');
@@ -18,15 +21,14 @@ export default function Consultation() {
   const [status, setStatus] = useState(null);
 
   return (
-    <section id="contact" className="relative px-6 py-16 md:py-24">
+    <section id="contact" className="relative bg-gradient-to-b from-white to-slate-50 px-6 py-16 md:py-24">
       <Blob className="-right-20 top-10 h-80 w-80" />
       <MorphBlob gradientFrom="#d4edda" gradientTo="#a8e6cf" className="-left-28 -bottom-28 h-[55vh] w-[55vw] max-h-[450px] max-w-[450px]" duration="23s" delay="-5s" />
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
 
       <div className="mx-auto max-w-6xl">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-bold text-[#010914]">
-            Get Your Free Consultation
-          </h2>
+        <AnimatedSection className="mx-auto max-w-4xl">
+          <CharReveal text="Get Your Free Consultation" className="font-bold text-[#010914]" />
           <div className="mt-4 flex items-start gap-4">
             <svg width="87" height="10" viewBox="0 0 87 10" className="mt-1.5 flex-shrink-0 fill-none stroke-teal-400 stroke-[4]">
               <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
@@ -36,9 +38,9 @@ export default function Consultation() {
               data-backed web design can bring you consistent streams of high-value leads.
             </h3>
           </div>
-        </div>
+        </AnimatedSection>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-12">
+        <AnimatedSection className="mt-8 grid gap-8 md:grid-cols-2 md:gap-12" delay={0.15}>
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -109,8 +111,9 @@ export default function Consultation() {
                 setSubmitting(false);
               }
             }}
-            className="grid gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:grid-cols-2 md:p-10"
+            className="rounded-2xl bg-gradient-to-br from-emerald-400/80 via-teal-300/80 to-emerald-500/80 p-[1px] shadow-lg"
           >
+            <div className="grid gap-5 rounded-[calc(1rem-1px)] bg-white/95 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
             <div>
               <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500">
                 First Name <span className="text-[#3ab54b]">*</span>
@@ -119,7 +122,7 @@ export default function Consultation() {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#3ab54b] focus:ring-2 focus:ring-green-200"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#3ab54b] focus:ring-2 focus:ring-emerald-200"
                 autoComplete="given-name"
               />
             </div>
@@ -224,6 +227,7 @@ export default function Consultation() {
                 <a href="/privacy-policy/" className="text-[#3ab54b] underline">privacy policy</a>.
               </p>
             </div>
+            </div>
           </form>
 
 
@@ -233,18 +237,20 @@ export default function Consultation() {
               { num: "2", title: "Multi Platform Performance", text: "We'll help you to look beyond the visuals to understand the true power of high-performance responsive web design, and see what it could mean for your business." },
               { num: "3", title: "User Centred Strategy", text: "We'll keep the focus on your refined buyer persona, maximising their positive experience. Our optimisations will engage your ideal customer and keep them coming back for more." },
             ].map((item) => (
-              <div key={item.num} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 font-bold text-[#2d8a3b]">
-                  {item.num}
-                </span>
-                <div>
-                  <h4 className="font-semibold text-[#272727]">{item.title}</h4>
-                  <p className="mt-1 leading-relaxed text-[#5a6564]">{item.text}</p>
+              <div key={item.num} className="rounded-2xl bg-gradient-to-br from-emerald-400/80 via-teal-300/80 to-emerald-500/80 p-[1px] shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-emerald-200/50">
+                <div className="flex gap-4 rounded-[calc(1rem-1px)] bg-white/95 p-5 backdrop-blur-sm">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 font-bold text-white shadow-md">
+                    {item.num}
+                  </span>
+                  <div>
+                    <h4 className="font-semibold text-[#272727]">{item.title}</h4>
+                    <p className="mt-1 leading-relaxed text-[#5a6564]">{item.text}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

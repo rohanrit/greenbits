@@ -3,16 +3,17 @@
 import Blob from './Blob';
 import MorphBlob from './MorphBlob';
 import Accordion from './Accordion';
+import AnimatedSection from './AnimatedSection';
+import CharReveal from './CharReveal';
 
 export default function FAQs() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-16 md:py-24">
       <Blob className="-left-20 top-10 h-72 w-72" />
       <MorphBlob gradientFrom="#dcedc1" gradientTo="#88d8b0" className="-right-28 -bottom-28 h-[50vh] w-[50vw] max-h-[400px] max-w-[400px]" duration="21s" delay="-4s" opacity={0.35} />
-      <div className="relative z-20 mx-auto max-w-4xl px-6">
-        <h2 className="font-bold text-[#010914]">
-          Web Design FAQs
-        </h2>
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
+      <AnimatedSection className="relative z-20 mx-auto max-w-4xl px-6">
+        <CharReveal text="Web Design FAQs" className="font-bold text-[#010914]" />
         <div className="mt-4 flex justify-start">
           <svg width="87" height="10" viewBox="0 0 87 10" className="fill-none stroke-teal-400 stroke-[4]">
             <path d="M0 2c7 0 7 6 14 6 8 0 8-6 15-6s7 6 15 6c7 0 7-6 14-6s7 6 14 6c8 0 8-6 15-6" />
@@ -30,7 +31,7 @@ export default function FAQs() {
             ]}
           />
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }
